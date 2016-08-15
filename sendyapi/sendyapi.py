@@ -57,8 +57,13 @@ class SendyAPI(object):
             'list_id': list_id,
             'api_key': self.api_key
         }
-        #TODO: Control response
-        return self._post('/api/subscribers/active-subscriber-count.php', params)
+
+        response = self._post('/api/subscribers/active-subscriber-count.php', params)
+
+        try:
+            return int(response)
+        except ValueError:
+            raise SubscriberCountError(response)
 
     def _post(self, path, params):
         url = self.base_url + path
