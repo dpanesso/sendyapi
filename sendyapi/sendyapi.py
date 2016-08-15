@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import requests
 from requests import RequestException
-from .exceptions import SubscriptionError, UnsubscriptionError, HttpRequestError
+from .exceptions import SubscriptionError, UnsubscriptionError, HttpRequestError, SubscriberCountError
 
 
 class SendyAPI(object):
