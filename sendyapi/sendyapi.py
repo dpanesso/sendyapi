@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import requests
 from requests import RequestException
-from .exceptions import SubscriptionError, UnsubscriptionError, HttpRequestError, SubscriberCountError
+from .exceptions import SubscriptionError, UnsubscriptionError, HttpRequestError, SubscriberCountError, \
+    SubscriberStatusError
 
 
 class SendyAPI(object):
@@ -50,7 +51,7 @@ class SendyAPI(object):
         if response in success:
             return response
         else:
-            raise UnsubscriptionError(response)
+            raise SubscriberStatusError(response)
 
     def subscriber_count(self, list_id=''):
         params = {

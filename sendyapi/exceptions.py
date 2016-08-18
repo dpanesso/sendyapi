@@ -46,6 +46,20 @@ class UnsubscriptionError(SendyException):
         self.msg = msg
 
 
+class SubscriberStatusError(SendyException):
+    """Exception raised for errors in the Subscriber Count.
+
+    Attributes:
+        msg  -- explanation of the error
+    """
+
+    def __init__(self, msg):
+
+        # Call the base class constructor with the parameters it needs
+        super(SubscriberStatusError, self).__init__(msg)
+        self.msg = msg
+
+
 class SubscriberCountError(SendyException):
     """Exception raised for errors in the Subscriber Count.
 
